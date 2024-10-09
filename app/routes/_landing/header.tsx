@@ -8,7 +8,7 @@ import { Button } from "~/components/ui/button";
 
 export const Header = ({ user }: { user: User | null }) => {
   return (
-    <header className="text-foreground">
+    <header className="bg-indigo-50 text-foreground dark:bg-indigo-950">
       <div className="container mx-auto flex h-16 items-center justify-between">
         <Link
           to="/"

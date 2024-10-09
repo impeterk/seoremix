@@ -1,4 +1,3 @@
-import type { MetaFunction } from "@remix-run/node";
 import { Link, useRouteLoaderData } from "@remix-run/react";
 
 import { BarChart, Search, Zap } from "lucide-react";
