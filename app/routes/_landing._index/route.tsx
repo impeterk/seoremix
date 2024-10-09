@@ -5,15 +5,6 @@ import { BarChart, Search, Zap } from "lucide-react";
 
 import { Button } from "~/components/ui/button";
 
-import { SingInForm } from "../_landing.auth._index/sign-in-form";
-
-export const meta: MetaFunction = () => {
-  return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
-  ];
-};
-
 export default function Index() {
   const user = useRouteLoaderData("routes/_landing");
   return (

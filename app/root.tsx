@@ -1,6 +1,5 @@
 import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
-import type {
-  MetaFunction} from "@remix-run/react";
+import type { MetaFunction } from "@remix-run/react";
 import {
   Links,
   Meta,
@@ -38,6 +37,12 @@ export const meta: MetaFunction = () => {
     {
       title: "SEO Sonar",
     },
+    {
+      rel: "icon",
+      href: "/favicon.ico",
+      sizes: "48x48",
+    },
+    { name: "description", content: "Welcome to Remix!" },
   ];
 };
 export function BaseLayout({ children }: { children: React.ReactNode }) {
