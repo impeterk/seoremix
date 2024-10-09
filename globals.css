@@ -35,8 +35,7 @@ body {
     --chart-5: 27 87% 67%;
   }
 
-  .dark,
-  :root[class~="dark"] {
+  .dark {
     --background: 224 71.4% 4.1%;
     --foreground: 210 20% 98%;
     --card: 224 71.4% 4.1%;
@@ -68,7 +67,6 @@ body {
   * {
     @apply border-border antialiased;
   }
-
   body {
     @apply bg-background text-foreground;
   }
