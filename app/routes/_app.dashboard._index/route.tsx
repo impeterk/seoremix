@@ -3,7 +3,13 @@ import { Link, useLoaderData } from "@remix-run/react";
 
 import BreadCrumbs from "~/components/admin-panel/breadcrumbs";
 import { ContentLayout } from "~/components/admin-panel/content-layout";
-import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "~/components/ui/card";
 import {
   createSSRClient,
   getUserFromAuth,

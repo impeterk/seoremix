@@ -130,7 +130,7 @@ function NewDomainForm() {
           icon={<Building2 />}
         />
         <Label className="mt-1 inline-flex items-center text-xs text-muted-foreground">
-          <Info className="mr-1 size-4 text-yellow-600/80" />
+          <Info className="text-warning mr-1 size-4 flex-none" />
           <span>
             To register new domain under <b>different</b> Organization, please
             change you current organization under your{" "}
