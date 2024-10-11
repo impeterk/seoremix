@@ -18,18 +18,24 @@ import type { Domain } from "./domains-table";
 
 export const columns: ColumnDef<Domain>[] = [
   {
-    id: "favicon",
-    maxSize: 50,
+    accessorKey: "favicon",
+    enableResizing: false,
+    size: 0,
+    header: () => null,
     cell: ({ row }) => {
       const favicon = row.original?.favicon;
-      return favicon ? (
-        <img
-          src={favicon}
-          className="size-10 rounded-lg border"
-          alt={`${row.original.base_url} favicon`}
-        />
-      ) : (
-        <Globe />
+      return (
+        <div className="flex items-center justify-center">
+          {favicon ? (
+            <img
+              src={favicon}
+              className="size-10 rounded-lg border"
+              alt={`${row.original.base_url} favicon`}
+            />
+          ) : (
+            <Globe />
+          )}
+        </div>
       );
     },
   },

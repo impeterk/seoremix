@@ -70,7 +70,7 @@ body {
 
 @layer base {
   * {
-    @apply border-border antialiased;
+    @apply border-border antialiased min-w-0;
   }
 
   body {

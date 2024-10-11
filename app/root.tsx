@@ -18,7 +18,7 @@ import {
   useTheme,
 } from "remix-themes";
 
-import TopLoader from "./components/ui/top-loader";
+import TopLoader from "./components/ui/top-loader.client";
 import { themeSessionResolver } from "./sessions.server";
 import styles from "./tailwind.css?url";
 
