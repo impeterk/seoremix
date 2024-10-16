@@ -15,7 +15,7 @@ import {
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
 
-export function SingInPage() {
+export default function SingInPage() {
   const navigation = useNavigation();
   const isSubmitting = navigation.formAction === "/auth/sign-in";
   return (

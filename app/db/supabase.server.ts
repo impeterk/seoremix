@@ -43,8 +43,6 @@ export function createSSRClient(request: Request) {
 }
 
 export function requireAuth(context: { user: User | null }) {
-  console.log("🟢", Date.now());
-  console.log({ supabasecontext: context });
   if (!context.user) {
     throw redirect("/auth", 302);
   }
