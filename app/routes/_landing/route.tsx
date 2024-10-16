@@ -6,8 +6,8 @@ import { getUser } from "~/db/supabase.server";
 import { Footer } from "./footer";
 import { Header } from "./header";
 
-export async function loader({ request }: LoaderFunctionArgs) {
-  return await getUser(request);
+export async function loader({ request, context }: LoaderFunctionArgs) {
+  return context.user;
 }
 export default function LandingLayout() {
   const user = useLoaderData<typeof loader>();

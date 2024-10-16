@@ -1,4 +1,8 @@
-import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
+import type {
+  ErrorResponse,
+  LinksFunction,
+  LoaderFunctionArgs,
+} from "@remix-run/node";
 import type { MetaFunction } from "@remix-run/react";
 import {
   Links,
@@ -6,19 +10,19 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  isRouteErrorResponse,
   useLoaderData,
+  useRouteError,
 } from "@remix-run/react";
 
-import "@fontsource/geist-mono/latin.css";
-import "@fontsource/geist-sans/latin.css";
 import clsx from "clsx";
 import {
   PreventFlashOnWrongTheme,
   ThemeProvider,
   useTheme,
 } from "remix-themes";
+import RemixTopLoader from "remix-toploader";
 
-import TopLoader from "./components/ui/top-loader.client";
 import { themeSessionResolver } from "./sessions.server";
 import styles from "./tailwind.css?url";
 
@@ -46,7 +50,6 @@ export const meta: MetaFunction = () => {
   ];
 };
 export function BaseLayout({ children }: { children: React.ReactNode }) {
-  TopLoader();
   const data = useLoaderData<typeof loader>();
   const [theme] = useTheme();
   return (
@@ -59,6 +62,7 @@ export function BaseLayout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
+        <RemixTopLoader color="hsl(var(--primary))" showSpinner={false} />
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -80,4 +84,26 @@ export function Layout() {
 
 export default function App() {
   return <Outlet />;
+}
+
+export function ErrorBoundary() {
+  const routeError = useRouteError();
+
+  if (isRouteErrorResponse(routeError)) {
+    const response = routeError as ErrorResponse;
+    return (
+      <>
+        <h1>{response.status}</h1>
+        <p>{response.statusText}</p>
+      </>
+    );
+  }
+  const error = routeError as Error;
+  return (
+    <>
+      <h1>ERROR!</h1>
+      <p>{error.message}</p>
+      <pre>{error.stack}</pre>
+    </>
+  );
 }

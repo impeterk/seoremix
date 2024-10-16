@@ -1,6 +1,6 @@
 import { Link, useRouteLoaderData } from "@remix-run/react";
 
-import { Building2, LayoutGrid, LogOut, User, User2 } from "lucide-react";
+import { LayoutGrid, LogOut, User2 } from "lucide-react";
 
 import { Button } from "~/components/ui/button";
 import {
@@ -23,7 +23,7 @@ import { Avatar, AvatarFallback } from "../ui/avatar";
 
 export function UserNav() {
   // @ts-expect-error @ts-ignore
-  const { user: data } = useRouteLoaderData("routes/_app");
+  const data = useRouteLoaderData("routes/_app");
   return (
     <DropdownMenu>
       <TooltipProvider disableHoverableContent>

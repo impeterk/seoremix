@@ -1,14 +1,13 @@
 import type { LoaderFunctionArgs } from "@remix-run/node";
-import { json } from "@remix-run/node";
 import { Outlet } from "@remix-run/react";
 
 import AdminPanelLayout from "~/components/admin-panel/admin-panel-layout";
-import { getUserFromAuth, requireAuth } from "~/db/supabase.server";
+import { requireAuth } from "~/db/supabase.server";
 
-export const loader = async ({ request }: LoaderFunctionArgs) => {
-  const user = await requireAuth(request);
-  const data = await getUserFromAuth(request, user.id);
-  return json({ user: data });
+export const loader = async ({ context }: LoaderFunctionArgs) => {
+  console.log({ appcontext: context });
+  const user = requireAuth(context);
+  return { user };
 };
 
 export default function DashboardLayout() {

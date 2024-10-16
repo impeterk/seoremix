@@ -1,12 +1,12 @@
 import { Link } from "@remix-run/react";
 
-import type { User } from "@supabase/supabase-js";
 import { Radar } from "lucide-react";
 
 import ThemeSwitch from "~/components/theme-switch";
 import { Button } from "~/components/ui/button";
 
-export const Header = ({ user }: { user: User | null }) => {
+// !TODO: Fix tipes
+export const Header = ({ user }: { user: any }) => {
   return (
     <header className="bg-indigo-50 text-foreground dark:bg-indigo-950">
       <div className="container mx-auto flex h-16 items-center justify-between">

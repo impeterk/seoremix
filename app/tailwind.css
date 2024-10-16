@@ -69,8 +69,18 @@ body {
 }
 
 @layer base {
+  @font-face {
+    font-family: "Geist Sans";
+    src: url(./fonts/GeistVF.woff);
+  }
+
+  @font-face {
+    font-family: "Geist Mono";
+    src: url(./fonts/GeistMonoVF.woff);
+  }
+
   * {
-    @apply border-border antialiased min-w-0;
+    @apply min-w-0 border-border antialiased;
   }
 
   body {

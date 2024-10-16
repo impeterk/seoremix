@@ -13,7 +13,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   } = await supabase.auth.getUser();
   console.log({ user });
 
-  if (user) return redirect("/dashboard", 302);
+  // if (user) return redirect("/dashboard", 302);
   return null;
 };
 

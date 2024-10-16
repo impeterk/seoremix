@@ -30,10 +30,9 @@ import {
 
 export const loader: LoaderFunction = async ({
   request,
+  context,
 }: LoaderFunctionArgs) => {
-  const authUser = await requireAuth(request);
-  const user = await getUserFromAuth(request, authUser.id);
-  return user;
+  return requireAuth(context);
 };
 
 const breadcrumbs = [

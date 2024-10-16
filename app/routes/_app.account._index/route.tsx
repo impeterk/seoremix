@@ -1,11 +1,5 @@
 import { type LoaderFunctionArgs } from "@remix-run/node";
-import {
-  Await,
-  type ClientLoaderFunctionArgs,
-  useLoaderData,
-  useRouteLoaderData,
-} from "@remix-run/react";
-import { Suspense } from "react";
+import { useLoaderData } from "@remix-run/react";
 
 import { User2 } from "lucide-react";
 

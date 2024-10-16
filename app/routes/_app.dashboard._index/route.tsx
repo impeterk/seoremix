@@ -3,28 +3,17 @@ import { Link, useLoaderData } from "@remix-run/react";
 
 import BreadCrumbs from "~/components/admin-panel/breadcrumbs";
 import { ContentLayout } from "~/components/admin-panel/content-layout";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "~/components/ui/card";
-import {
-  createSSRClient,
-  getUserFromAuth,
-  requireAuth,
-} from "~/db/supabase.server";
+import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
+import { createSSRClient, requireAuth } from "~/db/supabase.server";
 
 import { columns } from "./columns";
 import DomainsTable from "./domains-table";
 
-export async function loader({ request }: LoaderFunctionArgs) {
+export async function loader({ request, context }: LoaderFunctionArgs) {
   const { supabase } = createSSRClient(request);
-  const { id } = await requireAuth(request);
-  const user = await getUserFromAuth(request, id);
+  const user = requireAuth(context);
   const { data: domains } = await supabase.from("domains").select("*");
-  return { domains, user };
+  return { domains, user, context };
 }
 
 export const handle = {
@@ -32,7 +21,7 @@ export const handle = {
 };
 
 export default function DashboardPage() {
-  const { user, domains } = useLoaderData<typeof loader>();
+  const { user, domains, context } = useLoaderData<typeof loader>();
   const breadcrumbs = [{ path: "/", name: "Dashboard", active: true }];
   return (
     <ContentLayout title="Domain Dashboard">
@@ -45,7 +34,7 @@ export default function DashboardPage() {
           <DomainsTable data={domains!} columns={columns} />
         </CardContent>
       </Card>
-      <pre>{JSON.stringify(domains, null, 2)}</pre>
+      <pre>{JSON.stringify(context, null, 2)}</pre>
     </ContentLayout>
   );
 }

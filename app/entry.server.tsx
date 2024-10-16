@@ -10,8 +10,9 @@ import { RemixServer } from "@remix-run/react";
 import { isbot } from "isbot";
 import { PassThrough } from "node:stream";
 import { renderToPipeableStream } from "react-dom/server";
+import { createHonoServer } from "react-router-hono-server/node";
 
-export * from "../hono";
+export const server = await createHonoServer({});
 const ABORT_DELAY = 5_000;
 
 export default function handleRequest(

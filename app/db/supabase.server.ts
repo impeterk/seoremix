@@ -33,16 +33,12 @@ export function createSSRClient(request: Request) {
   return { supabase, headers };
 }
 
-export async function requireAuth(request: Request): Promise<User> {
-  const { supabase } = createSSRClient(request);
-  console.log("require Auth");
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  if (!user) {
+export function requireAuth(context) {
+  console.log({ supabasecontext: context });
+  if (!context.user) {
     throw redirect("/auth", 302);
   }
-  return user;
+  return context.user;
 }
 
 export async function getUser(request: Request) {
@@ -53,8 +49,14 @@ export async function getUser(request: Request) {
   return authUser;
 }
 
-export async function getUserFromAuth(request: Request, auth_id: string) {
+export async function getUserFromAuth(request: Request, auth_id?: string) {
   const { supabase } = createSSRClient(request);
+  if (!auth_id) {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    auth_id = user?.id;
+  }
   const { data } = await supabase
     .from("users")
     .select("*")
