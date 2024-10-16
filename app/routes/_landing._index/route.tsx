@@ -33,7 +33,7 @@ export default function Index() {
                     Start Scanning
                   </Button>
                 </Link>
-                <Link to="#">
+                <Link to="/auth">
                   <Button variant={"outline"}>Learn More</Button>
                 </Link>
               </div>

@@ -1,11 +1,5 @@
-import { type LoaderFunctionArgs } from "@remix-run/node";
-
 import { ContentLayout } from "~/components/admin-panel/content-layout";
 import { Card, CardHeader, CardTitle } from "~/components/ui/card";
-
-export const loader = async ({ context }: LoaderFunctionArgs) => {
-  return { context };
-};
 
 export default function CategoriesPage() {
   return (

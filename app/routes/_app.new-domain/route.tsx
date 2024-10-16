@@ -22,17 +22,13 @@ import {
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
 import { newDomainSchema } from "~/db/schemas/domains";
-import {
-  createSSRClient,
-  getUserFromAuth,
-  requireAuth,
-} from "~/db/supabase.server";
+import { createSSRClient } from "~/db/supabase.server";
 
 export const loader: LoaderFunction = async ({
   request,
   context,
 }: LoaderFunctionArgs) => {
-  return requireAuth(context);
+  return context.user;
 };
 
 const breadcrumbs = [

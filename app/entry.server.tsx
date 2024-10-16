@@ -7,12 +7,28 @@ import type { AppLoadContext, EntryContext } from "@remix-run/node";
 import { createReadableStreamFromReadable } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
 
+import { createMiddleware } from "hono/factory";
 import { isbot } from "isbot";
 import { PassThrough } from "node:stream";
 import { renderToPipeableStream } from "react-dom/server";
 import { createHonoServer } from "react-router-hono-server/node";
 
-export const server = await createHonoServer({});
+import { getUserFromAuth } from "./db/supabase.server";
+
+export const server = await createHonoServer({
+  configure: (server) => {
+    server.use(
+      createMiddleware(async (c, next) => {
+        const user = await getUserFromAuth(c.req.raw);
+        c.set("user", user);
+        return next();
+      })
+    );
+  },
+  getLoadContext: (c) => {
+    return { user: c.get("user") };
+  },
+});
 const ABORT_DELAY = 5_000;
 
 export default function handleRequest(

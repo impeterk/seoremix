@@ -1,12 +1,11 @@
 import type { LoaderFunctionArgs } from "@remix-run/node";
 import { Outlet, useLoaderData } from "@remix-run/react";
 
-import { getUser } from "~/db/supabase.server";
-
 import { Footer } from "./footer";
 import { Header } from "./header";
 
 export async function loader({ request, context }: LoaderFunctionArgs) {
+  console.log(context);
   return context.user;
 }
 export default function LandingLayout() {

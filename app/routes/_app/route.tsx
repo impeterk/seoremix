@@ -5,9 +5,7 @@ import AdminPanelLayout from "~/components/admin-panel/admin-panel-layout";
 import { requireAuth } from "~/db/supabase.server";
 
 export const loader = async ({ context }: LoaderFunctionArgs) => {
-  console.log({ appcontext: context });
-  const user = requireAuth(context);
-  return { user };
+  return requireAuth(context);
 };
 
 export default function DashboardLayout() {

@@ -5,8 +5,17 @@ import {
   parseCookieHeader,
   serializeCookieHeader,
 } from "@supabase/ssr";
-import type { User } from "@supabase/supabase-js";
 import "dotenv/config";
+
+export type User = {
+  id: string;
+  created_at: string;
+  auth_id: string;
+  role: "admin" | "user";
+  display_name: string;
+  email: string;
+  active_org: string;
+};
 
 export function createSSRClient(request: Request) {
   const headers = new Headers();
@@ -33,7 +42,8 @@ export function createSSRClient(request: Request) {
   return { supabase, headers };
 }
 
-export function requireAuth(context) {
+export function requireAuth(context: { user: User | null }) {
+  console.log("🟢", Date.now());
   console.log({ supabasecontext: context });
   if (!context.user) {
     throw redirect("/auth", 302);

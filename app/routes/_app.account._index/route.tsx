@@ -14,20 +14,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "~/components/ui/select";
-import { createSSRClient, requireAuth } from "~/db/supabase.server";
+import { createSSRClient } from "~/db/supabase.server";
 
 export const handle = {
   title: () => "Account",
 };
 
-export const loader = async ({ request }: LoaderFunctionArgs) => {
+export const loader = async ({ request, context }: LoaderFunctionArgs) => {
   const { supabase } = createSSRClient(request);
-  const authUser = await requireAuth(request);
-  const { data: user } = await supabase
-    .from("users")
-    .select("*")
-    .eq("auth_id", authUser.id)
-    .single();
+  const user = context.user;
 
   const { data: orgs } = await supabase
     .from("users_orgs")
