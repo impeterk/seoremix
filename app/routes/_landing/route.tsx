@@ -8,6 +8,7 @@ export async function loader({ request, context }: LoaderFunctionArgs) {
   console.log(context);
   return context.user;
 }
+
 export default function LandingLayout() {
   const user = useLoaderData<typeof loader>();
   return (

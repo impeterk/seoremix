@@ -18,12 +18,12 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "~/components/ui/tooltip";
+import type { loader } from "~/routes/_app/route";
 
 import { Avatar, AvatarFallback } from "../ui/avatar";
 
 export function UserNav() {
-  // @ts-expect-error @ts-ignore
-  const data = useRouteLoaderData("routes/_app");
+  const data = useRouteLoaderData<typeof loader>("routes/_app")!;
   return (
     <DropdownMenu>
       <TooltipProvider disableHoverableContent>

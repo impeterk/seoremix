@@ -63,6 +63,9 @@ export async function getUserFromAuth(request: Request, auth_id?: string) {
     const {
       data: { user },
     } = await supabase.auth.getUser();
+    if (!user) {
+      return null;
+    }
     auth_id = user?.id;
   }
   const { data } = await supabase
