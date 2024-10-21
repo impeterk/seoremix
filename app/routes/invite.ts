@@ -3,6 +3,8 @@ import type { ActionFunctionArgs } from "@remix-run/node";
 export async function action({ request }: ActionFunctionArgs) {
   const fd = await request.formData();
   const email = fd.get("email");
+  // TODO: Add email do db
+  // FIXME: Handle errors
   if (!email) {
     return {
       data: null,

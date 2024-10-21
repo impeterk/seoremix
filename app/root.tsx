@@ -26,7 +26,13 @@ import RemixTopLoader from "remix-toploader";
 import { themeSessionResolver } from "./sessions.server";
 import styles from "./tailwind.css?url";
 
-export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: styles },
+  {
+    rel: "icon",
+    href: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzQzMzhjYSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiPjxwYXRoIGQ9Ik0xOS4wNyA0LjkzQTEwIDEwIDAgMCAwIDYuOTkgMy4zNE00IDZoLjAxTTIuMjkgOS42MmExMCAxMCAwIDEgMCAxOS4wMi0xLjI3Ii8+PHBhdGggZD0iTTE2LjI0IDcuNzZhNiA2IDAgMSAwLTguMDEgOC45MU0xMiAxOGguMDFtNS45OC02LjM0YTYgNiAwIDAgMS0yLjIyIDUuMDEiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIyIi8+PHBhdGggZD0ibTEzLjQxIDEwLjU5bDUuNjYtNS42NiIvPjwvZz48L3N2Zz4=",
+  },
+];
 
 // Return the theme from the session storage using the loader
 export async function loader({ request }: LoaderFunctionArgs) {
