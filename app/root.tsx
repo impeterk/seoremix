@@ -30,7 +30,7 @@ export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
   {
     rel: "icon",
-    href: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzQzMzhjYSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiPjxwYXRoIGQ9Ik0xOS4wNyA0LjkzQTEwIDEwIDAgMCAwIDYuOTkgMy4zNE00IDZoLjAxTTIuMjkgOS42MmExMCAxMCAwIDEgMCAxOS4wMi0xLjI3Ii8+PHBhdGggZD0iTTE2LjI0IDcuNzZhNiA2IDAgMSAwLTguMDEgOC45MU0xMiAxOGguMDFtNS45OC02LjM0YTYgNiAwIDAgMS0yLjIyIDUuMDEiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIyIi8+PHBhdGggZD0ibTEzLjQxIDEwLjU5bDUuNjYtNS42NiIvPjwvZz48L3N2Zz4=",
+    href: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxyZWN0IHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIvPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzQzMzhjYSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiPjxwYXRoIGQ9Ik0xOS4wNyA0LjkzQTEwIDEwIDAgMCAwIDYuOTkgMy4zNE00IDZoLjAxTTIuMjkgOS42MmExMCAxMCAwIDEgMCAxOS4wMi0xLjI3Ii8+PHBhdGggZD0iTTE2LjI0IDcuNzZhNiA2IDAgMSAwLTguMDEgOC45MU0xMiAxOGguMDFtNS45OC02LjM0YTYgNiAwIDAgMS0yLjIyIDUuMDEiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIyIi8+PHBhdGggZD0ibTEzLjQxIDEwLjU5bDUuNjYtNS42NiIvPjwvZz48L3N2Zz4=",
   },
 ];
 
@@ -49,8 +49,7 @@ export const meta: MetaFunction = () => {
     },
     {
       rel: "icon",
-      href: "/favicon.ico",
-      sizes: "48x48",
+      href: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxyZWN0IHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIvPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzQzMzhjYSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiPjxwYXRoIGQ9Ik0xOS4wNyA0LjkzQTEwIDEwIDAgMCAwIDYuOTkgMy4zNE00IDZoLjAxTTIuMjkgOS42MmExMCAxMCAwIDEgMCAxOS4wMi0xLjI3Ii8+PHBhdGggZD0iTTE2LjI0IDcuNzZhNiA2IDAgMSAwLTguMDEgOC45MU0xMiAxOGguMDFtNS45OC02LjM0YTYgNiAwIDAgMS0yLjIyIDUuMDEiLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIyIi8+PHBhdGggZD0ibTEzLjQxIDEwLjU5bDUuNjYtNS42NiIvPjwvZz48L3N2Zz4=",
     },
     { name: "description", content: "Welcome to Remix!" },
   ];

@@ -14,7 +14,7 @@ import { Label } from "@/components/ui/label";
 import { Info, Mail } from "lucide-react";
 
 export default function InviteForm() {
-  const fetcher = useFetcher();
+  const fetcher = useFetcher<any>();
   return (
     <Card>
       <CardHeader>

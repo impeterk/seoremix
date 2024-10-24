@@ -44,7 +44,7 @@ export function HistoryCard() {
         <CardDescription>January - June 2024</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-row">
-        <ChartContainer config={chartConfig} className="h-80 md:border-r">
+        <ChartContainer config={chartConfig} className="h-80 w-full">
           <LineChart
             accessibilityLayer
             data={chartData}

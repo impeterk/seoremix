@@ -7,6 +7,7 @@ import {
 import { Link, useFetcher, useLoaderData } from "@remix-run/react";
 import { type FormEvent } from "react";
 
+import { newDomainSchema } from "@/db/schemas/domains";
 import { Building2, Compass, FilePlus2, Info } from "lucide-react";
 
 import BreadCrumbs from "~/components/admin-panel/breadcrumbs";
@@ -21,7 +22,6 @@ import {
 } from "~/components/ui/card";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
-import { newDomainSchema } from "~/db/schemas/domains";
 import { createSSRClient } from "~/db/supabase.server";
 
 export const loader: LoaderFunction = async ({

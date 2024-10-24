@@ -53,7 +53,10 @@ export function SummaryDonutChart() {
   }, []);
 
   return (
-    <ChartContainer config={chartConfig} className="aspect-square">
+    <ChartContainer
+      config={chartConfig}
+      className="aspect-square w-full max-w-60"
+    >
       <PieChart>
         <ChartTooltip
           cursor={false}
@@ -63,8 +66,7 @@ export function SummaryDonutChart() {
           data={chartData}
           dataKey="visitors"
           nameKey="browser"
-          innerRadius={40}
-          strokeWidth={5}
+          innerRadius={60}
         >
           <Label
             content={({ viewBox }) => {
